@@ -1,0 +1,39 @@
+mat-toolbar {
+    background: #FFFFFF;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 133px;
+    border: 2px solid rgb(236, 236, 236);
+}
+
+.navlink {
+    font-size: 14px;
+    margin-left: 2rem;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+#search-icon {
+    position: relative;
+    left: 10rem;
+    bottom: 3px;
+    color: gray
+}
+
+#search-text {
+    position: relative;
+    right: 2rem;
+    width: 4rem;
+    bottom: 11px;
+    color: gray
+}
+
+#search-box {
+    height: 4rem;
+    margin-left: auto;
+    background-color: #FFFFFF;
+}

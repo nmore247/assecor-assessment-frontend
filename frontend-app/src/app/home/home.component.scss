@@ -1,0 +1,13 @@
+.container {
+    background-color: #10172C;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+}
