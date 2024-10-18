@@ -15,7 +15,7 @@ export class AppComponent {
 
   navlinks = [
     { name: "Star Wars", url: "/home" },
-    { name: "Filme", url: "/films" },
+    { name: "Films", url: "/films" },
     { name: "Characters", url: "/characters" },
     { name: "Planets", url: "/planets" }
   ]

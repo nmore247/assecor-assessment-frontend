@@ -1,0 +1,21 @@
+<div class="container responsive-grid">
+    <ng-container *ngIf="films.length > 0; else loading">
+        <div class="films-row" *ngFor="let film of films; let i = index">
+            <mat-card class="film-card">
+                <img mat-card-image src="../../../assets/images/logo.png" alt="{{ film.title }}">
+                <mat-card-header>
+                    <mat-card-title>{{ film.title }}</mat-card-title>
+                    <mat-card-subtitle>Episode {{ film.episode_id }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Director:</strong> {{ film.director }}</p>
+                    <p><strong>Release Date:</strong> {{ film.release_date | date:'longDate' }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-container>
+
+    <ng-template #loading>
+        <p>Loading films...</p>
+    </ng-template>
+</div>
