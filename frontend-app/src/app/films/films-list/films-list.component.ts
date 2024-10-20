@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { FilmsListService } from '../films-list.service';
 import { IFilm } from '../film';
 import { CommonModule } from '@angular/common';
