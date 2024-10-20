@@ -1,29 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { FilmsListService } from '../films-list.service';
+import { FilmsService } from '../films.service';
 import { IFilm } from '../film';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-films-list',
   standalone: true,
-  imports: [MatCardModule, MatGridListModule, CommonModule],
+  imports: [MatCardModule, MatGridListModule, CommonModule, RouterModule],
   templateUrl: './films-list.component.html',
   styleUrl: './films-list.component.scss'
 })
 export class FilmsListComponent implements OnInit {
   public films: IFilm[] = [];
 
-  constructor(private filmsListService: FilmsListService) {
+  constructor(private filmsListService: FilmsService, private router: Router) {
 
   }
   ngOnInit(): void {
-    this.filmsListService.getFilms().subscribe(response => {
+    this.filmsListService.getAllFilms().subscribe(response => {
       if (response) {
         this.films = response.results
-        console.log(this.films)
       }
     })
   }
+
+  public navigateToFilm(id: string): void {
+    this.router.navigate(['films', id]);
+  }
+
 }

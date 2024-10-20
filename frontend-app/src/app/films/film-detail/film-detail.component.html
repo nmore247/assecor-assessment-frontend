@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="title center">
+        <p>Filmdetails</p>
+    </div>
+    <hr class="underline center">
+
+    <ng-container></ng-container>
+    @if(selectedFilm){
+    <div class="film-title center">
+        <p>{{selectedFilm.title}}</p>
+    </div>
+    <div class="title center">
+        <p>Episode {{selectedFilm.episode_id}}</p>
+    </div>
+    }
+</div>
+@if(selectedFilm){
+<div class="detailcontainer">
+    <div class="column">
+        <p>Details</p>
+        <ul style="list-style: none;">
+            <li>Director: {{selectedFilm.director}}</li>
+            <li>Producers: {{selectedFilm.producer}}</li>
+            <li>Release Date: {{selectedFilm.release_date}}</li>
+        </ul>
+        <br>
+        <p>{{selectedFilm.opening_crawl}}</p>
+        <br>
+
+        <!--  characters -->
+        @if(characters){
+        <p style="font-weight: bold;">Characters:</p>
+        @for (character of characters; track $index) {
+        <mat-chip>{{character}}</mat-chip>
+        }
+        @if(selectedFilm.characters){
+        <mat-chip>...</mat-chip>
+        }
+        }
+        
+        <!--  planets -->
+        <p style="font-weight: bold;">Planets</p>
+
+        <!--  starships -->
+        <p style="font-weight: bold;">Starships</p>
+
+        <!--  vehicles -->
+        <p style="font-weight: bold;">Vehicles</p>
+
+    </div>
+
+    <div class="column"><img src="../../../assets/images/logo.png" alt="" class="responsive-image"></div>
+</div>
+}
+
+
+@else {
+<p>Loading film details...</p>
+}
