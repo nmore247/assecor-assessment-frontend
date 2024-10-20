@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { MatChipsModule } from '@angular/material/chips';
 import { IFilm } from '../film';
 import { FilmsService } from '../films.service';
 import { CharacterService } from '../../characters/character.service';
-import { ICharacter } from '../../characters/character';
 import { PlanetsService } from '../../planets/planets.service';
 import { StarshipService } from '../../starships/starship.service';
 import { VehicleService } from '../../vehicles/vehicles.service';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-film-detail',
   standalone: true,
-  imports: [RouterModule, MatChipsModule],
+  imports: [RouterModule, MatButtonModule],
   templateUrl: './film-detail.component.html',
   styleUrl: './film-detail.component.scss'
 })
@@ -55,7 +54,7 @@ export class FilmDetailComponent implements OnInit {
       this.characterService.getSingleCharacter(character).subscribe(data => {
         if (data) {
           _characters.push(data.name)
-          this.characters = _characters.slice(0, 3);
+          this.characters = _characters.slice(0, 3).sort();
         }
       })
     })
@@ -65,7 +64,7 @@ export class FilmDetailComponent implements OnInit {
       this.planetService.getSinglePlanet(planet).subscribe(data => {
         if (data) {
           _planets.push(data.name)
-          this.planets = _planets.slice(0, 3);
+          this.planets = _planets.slice(0, 3).sort();
         }
       })
     })
@@ -75,7 +74,7 @@ export class FilmDetailComponent implements OnInit {
       this.starshipService.getSinglePlanet(starship).subscribe(data => {
         if (data) {
           _starships.push(data.name)
-          this.starships = _starships.slice(0, 3);
+          this.starships = _starships.slice(0, 3).sort();
         }
       })
     })
@@ -85,7 +84,7 @@ export class FilmDetailComponent implements OnInit {
       this.vehicleService.getSinglePlanet(vehicle).subscribe(data => {
         if (data) {
           _vehicles.push(data.name)
-          this.vehicles = _vehicles.slice(0, 3);
+          this.vehicles = _vehicles.slice(0, 3).sort();
         }
       })
     })

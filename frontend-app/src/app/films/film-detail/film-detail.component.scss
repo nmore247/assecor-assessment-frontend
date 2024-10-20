@@ -44,7 +44,12 @@
 
 .column {
     padding: 20px;
-    text-align: center;
+    text-align: center; 
+}
+
+.detailcolumn{
+    padding: 64px;
+    text-align: justify;
 }
 
 /* Responsive behavior */
@@ -55,13 +60,23 @@
 }
 
 .responsive-image {
+    max-width: 598px;
+    max-height: 374px;
     width: 100%;
     height: auto;
 }
 
-mat-chip {
+button {
     background-color: #BBBBBB;
     border-radius: 0px;
-    margin-right: 8px;
+    margin-right: 16px;
     padding: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 14px;
 }

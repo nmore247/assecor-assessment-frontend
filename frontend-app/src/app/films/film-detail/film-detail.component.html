@@ -14,59 +14,59 @@
     </div>
     }
 </div>
+
+<!-- film details section -->
 @if(selectedFilm){
 <div class="detailcontainer">
-    <div class="column">
-        <p>Details</p>
-        <ul style="list-style: none;">
-            <li>Director: {{selectedFilm.director}}</li>
-            <li>Producers: {{selectedFilm.producer}}</li>
-            <li>Release Date: {{selectedFilm.release_date}}</li>
-        </ul>
+    <div class="column detailcolumn">
+        <p class="bold" style="font-size: 18px;">Details:</p>
+        <p class="bold">Director: <span style="font-weight: lighter;">{{selectedFilm.director}}</span></p>
+        <p class="bold">Producers: <span style="font-weight: lighter;">{{selectedFilm.producer}}</span></p>
+        <p class="bold">Release Date: <span style="font-weight: lighter;">{{selectedFilm.release_date}}</span></p>
         <br>
-        <p>{{selectedFilm.opening_crawl}}</p>
-        <br>
-
+        <p style="font-size: 14px;">{{selectedFilm.opening_crawl}}</p>
+        <div><br></div>
         <!--  characters -->
         @if(characters){
         <p style="font-weight: bold;">Characters:</p>
         @for (character of characters; track $index) {
-        <mat-chip>{{character}}</mat-chip>
+        <button mat-raised-button>{{character}}</button>
         }
         @if(selectedFilm.characters.length>3){
-        <mat-chip>...</mat-chip>
+        <button mat-raised-button>...</button>
         }
         }
-
+        <div><br></div>
         <!--  planets -->
         @if(planets){
         <p style="font-weight: bold;">Planets:</p>
         @for (planet of planets; track $index) {
-        <mat-chip>{{planet}}</mat-chip>
+        <button mat-raised-button>{{planet}}</button>
         }
         @if(selectedFilm.planets.length>3){
-        <mat-chip>...</mat-chip>
+        <button mat-raised-button>...</button>
         }
         }
+        <div><br></div>
         <!--  starships -->
         @if(starships){
         <p style="font-weight: bold;">Starships:</p>
         @for (starship of starships; track $index) {
-        <mat-chip>{{starship}}</mat-chip>
+        <button mat-raised-button>{{starship}}</button>
         }
         @if(selectedFilm.starships.length>3){
-        <mat-chip>...</mat-chip>
+        <button mat-raised-button>...</button>
         }
         }
-
+        <div><br></div>
         <!--  vehicles -->
         @if(vehicles){
         <p style="font-weight: bold;">Vehicles:</p>
         @for (vehicle of vehicles; track $index) {
-        <mat-chip>{{vehicle}}</mat-chip>
+        <button mat-raised-button>{{vehicle}}</button>
         }
         @if(selectedFilm.vehicles.length>3){
-        <mat-chip>...</mat-chip>
+        <button mat-raised-button>...</button>
         }
         }
 
