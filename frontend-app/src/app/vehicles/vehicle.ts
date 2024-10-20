@@ -1,4 +1,4 @@
-export interface Vehicle {
+export interface IVehicle {
     name: string;
     model: string;
     manufacturer: string;

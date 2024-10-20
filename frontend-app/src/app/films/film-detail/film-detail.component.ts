@@ -5,6 +5,9 @@ import { IFilm } from '../film';
 import { FilmsService } from '../films.service';
 import { CharacterService } from '../../characters/character.service';
 import { ICharacter } from '../../characters/character';
+import { PlanetsService } from '../../planets/planets.service';
+import { StarshipService } from '../../starships/starship.service';
+import { VehicleService } from '../../vehicles/vehicles.service';
 
 @Component({
   selector: 'app-film-detail',
@@ -17,34 +20,79 @@ export class FilmDetailComponent implements OnInit {
 
   public selectedFilm!: IFilm;
   public characters: string[] = [];
+  public planets: string[] = [];
+  public starships: string[] = [];
+  public vehicles: string[] = [];
 
-  constructor(private route: ActivatedRoute, private filmService: FilmsService, private characterService: CharacterService) { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private filmService: FilmsService,
+    private characterService: CharacterService,
+    private planetService: PlanetsService,
+    private starshipService: StarshipService,
+    private vehicleService: VehicleService
+  ) { }
 
   ngOnInit(): void {
     const filmId = this.route.snapshot.paramMap.get('id');
     if (filmId) {
       this.filmService.getFilmById(filmId).subscribe(film => {
         this.selectedFilm = film;
-        this.getCharacterNames(this.selectedFilm.characters)
+        this.getFilmAttributeNames(this.selectedFilm.characters, this.selectedFilm.planets, this.selectedFilm.starships, this.selectedFilm.vehicles)
       })
     }
   }
 
-  public getCharacterNames(characters: string[]) {
+  public getFilmAttributeNames(characters: string[], planets: string[], starships: string[], vehicles: string[]) {
     const _characters: string[] = [];
-    console.log(characters.length)
+    const _planets: string[] = [];
+    const _starships: string[] = [];
+    const _vehicles: string[] = [];
+
+    // retrieve list of characters for selected film
     characters.forEach(character => {
       this.characterService.getSingleCharacter(character).subscribe(data => {
-        if (data)
+        if (data) {
           _characters.push(data.name)
           this.characters = _characters.slice(0, 3);
+        }
       })
     })
 
-    
+    // retrieve list of planets for selected film
+    planets.forEach(planet => {
+      this.planetService.getSinglePlanet(planet).subscribe(data => {
+        if (data) {
+          _planets.push(data.name)
+          this.planets = _planets.slice(0, 3);
+        }
+      })
+    })
 
-    return this.characters;
+    // retrieve list of starships for selected film
+    starships.forEach(starship => {
+      this.starshipService.getSinglePlanet(starship).subscribe(data => {
+        if (data) {
+          _starships.push(data.name)
+          this.starships = _starships.slice(0, 3);
+        }
+      })
+    })
+
+    // retrieve list of vehicles for selected film
+    vehicles.forEach(vehicle => {
+      this.vehicleService.getSinglePlanet(vehicle).subscribe(data => {
+        if (data) {
+          _vehicles.push(data.name)
+          this.vehicles = _vehicles.slice(0, 3);
+        }
+      })
+    })
+
   }
+
+
 
 
 

@@ -33,19 +33,42 @@
         @for (character of characters; track $index) {
         <mat-chip>{{character}}</mat-chip>
         }
-        @if(selectedFilm.characters){
+        @if(selectedFilm.characters.length>3){
         <mat-chip>...</mat-chip>
         }
         }
-        
-        <!--  planets -->
-        <p style="font-weight: bold;">Planets</p>
 
+        <!--  planets -->
+        @if(planets){
+        <p style="font-weight: bold;">Planets:</p>
+        @for (planet of planets; track $index) {
+        <mat-chip>{{planet}}</mat-chip>
+        }
+        @if(selectedFilm.planets.length>3){
+        <mat-chip>...</mat-chip>
+        }
+        }
         <!--  starships -->
-        <p style="font-weight: bold;">Starships</p>
+        @if(starships){
+        <p style="font-weight: bold;">Starships:</p>
+        @for (starship of starships; track $index) {
+        <mat-chip>{{starship}}</mat-chip>
+        }
+        @if(selectedFilm.starships.length>3){
+        <mat-chip>...</mat-chip>
+        }
+        }
 
         <!--  vehicles -->
-        <p style="font-weight: bold;">Vehicles</p>
+        @if(vehicles){
+        <p style="font-weight: bold;">Vehicles:</p>
+        @for (vehicle of vehicles; track $index) {
+        <mat-chip>{{vehicle}}</mat-chip>
+        }
+        @if(selectedFilm.vehicles.length>3){
+        <mat-chip>...</mat-chip>
+        }
+        }
 
     </div>
 
