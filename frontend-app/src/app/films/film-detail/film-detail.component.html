@@ -18,17 +18,19 @@
 <!-- film details section -->
 @if(selectedFilm){
 <div class="detailcontainer">
-    <div class="column detailcolumn">
-        <p class="bold" style="font-size: 18px;">Details:</p>
-        <p class="bold">Director: <span style="font-weight: lighter;">{{selectedFilm.director}}</span></p>
-        <p class="bold">Producers: <span style="font-weight: lighter;">{{selectedFilm.producer}}</span></p>
-        <p class="bold">Release Date: <span style="font-weight: lighter;">{{selectedFilm.release_date}}</span></p>
+    <div class="detailcolumn">
+        <p id="details" class="spacer">Details:</p>
+        <p class="bold spacer">Director: <span class="litefont">{{selectedFilm.director}}</span>
+        </p>
+        <p class="bold spacer">Producers: <span class="litefont">{{selectedFilm.producer}}</span>
+        </p>
+        <p class="bold spacer">Release Date: <span class="litefont">{{selectedFilm.release_date | date:'dd.MM.yyyy'}}</span></p>
         <br>
-        <p style="font-size: 14px;">{{selectedFilm.opening_crawl}}</p>
+        <p style="font-size: 18px;">{{selectedFilm.opening_crawl}}</p>
         <div><br></div>
         <!--  characters -->
         @if(characters){
-        <p style="font-weight: bold;">Characters:</p>
+        <p class="bold">Characters:</p>
         @for (character of characters; track $index) {
         <button mat-raised-button>{{character}}</button>
         }
@@ -39,7 +41,7 @@
         <div><br></div>
         <!--  planets -->
         @if(planets){
-        <p style="font-weight: bold;">Planets:</p>
+        <p class="bold">Planets:</p>
         @for (planet of planets; track $index) {
         <button mat-raised-button>{{planet}}</button>
         }
@@ -50,7 +52,7 @@
         <div><br></div>
         <!--  starships -->
         @if(starships){
-        <p style="font-weight: bold;">Starships:</p>
+        <p class="bold">Starships:</p>
         @for (starship of starships; track $index) {
         <button mat-raised-button>{{starship}}</button>
         }
@@ -61,7 +63,7 @@
         <div><br></div>
         <!--  vehicles -->
         @if(vehicles){
-        <p style="font-weight: bold;">Vehicles:</p>
+        <p class="bold">Vehicles:</p>
         @for (vehicle of vehicles; track $index) {
         <button mat-raised-button>{{vehicle}}</button>
         }
@@ -72,7 +74,7 @@
 
     </div>
 
-    <div class="column"><img src="../../../assets/images/logo.png" alt="" class="responsive-image"></div>
+    <div><img src="../../../assets/images/5.png" alt="" class="responsive-image"></div>
 </div>
 }
 

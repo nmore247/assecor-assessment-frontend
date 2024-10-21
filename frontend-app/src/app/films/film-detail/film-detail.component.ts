@@ -7,11 +7,12 @@ import { PlanetsService } from '../../planets/planets.service';
 import { StarshipService } from '../../starships/starship.service';
 import { VehicleService } from '../../vehicles/vehicles.service';
 import {MatButtonModule} from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-film-detail',
   standalone: true,
-  imports: [RouterModule, MatButtonModule],
+  imports: [RouterModule, MatButtonModule, CommonModule],
   templateUrl: './film-detail.component.html',
   styleUrl: './film-detail.component.scss'
 })

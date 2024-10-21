@@ -9,3 +9,12 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+@mixin div-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: auto;
+}
