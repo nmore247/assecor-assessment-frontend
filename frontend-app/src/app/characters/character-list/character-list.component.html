@@ -1,1 +1,25 @@
-<p>character-list works!</p>
+<div class="title">
+    <h3>Characters</h3>
+</div>
+@if(characters.length > 0){
+<div class="container">
+    @for(character of characters; track character){
+    <mat-card class="film-card" (click)="navigateToCharacter(character.url.split('/').reverse()[1])">
+        <img mat-card-image src="../../../assets/images/4.png" alt="{{ character.name }}">
+        <mat-card-header>
+            <mat-card-title class="card-header">{{ character.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p class="detail">Gender: {{ character.gender }}</p>
+            <p class="detail">Height: {{ character.height }}</p>
+            <p class="detail">Weight: {{ character.mass }}kg</p>
+        </mat-card-content>
+        <p class="info">More Information</p>
+    </mat-card>
+    }
+
+</div>
+}
+@else{
+<div class="loading"><mat-spinner></mat-spinner></div>
+}

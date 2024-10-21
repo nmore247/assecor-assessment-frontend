@@ -5,7 +5,7 @@ import { FilmsService } from '../films.service';
 import { IFilm } from '../film';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-films-list',
@@ -20,6 +20,7 @@ export class FilmsListComponent implements OnInit {
   constructor(private filmsListService: FilmsService, private router: Router) {
 
   }
+
   ngOnInit(): void {
     this.filmsListService.getAllFilms().subscribe(response => {
       if (response) {

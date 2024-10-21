@@ -19,6 +19,11 @@ export class FilmsService {
     return this.http.get<{ results: IFilm[] }>(this.filmsUrl);
   }
 
+   // get a single film
+   public getSingleFilm(filmsUrl :string): Observable<IFilm> {
+    return this.http.get<IFilm>(filmsUrl);
+  }
+
   // get a single film by ID
   public getFilmById(id: string): Observable<IFilm> {
     const url = `${this.filmsUrl}${id}`;

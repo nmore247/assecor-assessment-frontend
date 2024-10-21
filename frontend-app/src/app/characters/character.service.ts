@@ -24,6 +24,12 @@ export class CharacterService {
     return this.http.get<ICharacter>(characterUrl);
   }
 
+  // get a character by ID
+  public getCharacterById(id: string): Observable<ICharacter> {
+    const url = `${this.charactersUrl}${id}`;
+    return this.http.get<ICharacter>(url);
+  }
+
   
 
 }
