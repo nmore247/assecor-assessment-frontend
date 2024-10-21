@@ -14,7 +14,7 @@ export class StarshipService {
   constructor(private http: HttpClient) { }
 
   // get a single starship
-  public getSinglePlanet(planetsUrl :string): Observable<IStarship> {
+  public getSingleStarship(planetsUrl :string): Observable<IStarship> {
     return this.http.get<IStarship>(planetsUrl);
   }
 

@@ -13,7 +13,7 @@ export class VehicleService {
   constructor(private http: HttpClient) { }
 
   // get a single vehicle
-  public getSinglePlanet(vehicleUrl: string): Observable<IVehicle> {
+  public getSingleVehicle(vehicleUrl: string): Observable<IVehicle> {
     return this.http.get<IVehicle>(vehicleUrl);
   }
 

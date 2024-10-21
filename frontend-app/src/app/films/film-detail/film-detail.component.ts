@@ -71,7 +71,7 @@ export class FilmDetailComponent implements OnInit {
 
     // retrieve list of starships for selected film
     starships.forEach(starship => {
-      this.starshipService.getSinglePlanet(starship).subscribe(data => {
+      this.starshipService.getSingleStarship(starship).subscribe(data => {
         if (data) {
           _starships.push(data.name)
           this.starships = _starships.slice(0, 3).sort();
@@ -81,7 +81,7 @@ export class FilmDetailComponent implements OnInit {
 
     // retrieve list of vehicles for selected film
     vehicles.forEach(vehicle => {
-      this.vehicleService.getSinglePlanet(vehicle).subscribe(data => {
+      this.vehicleService.getSingleVehicle(vehicle).subscribe(data => {
         if (data) {
           _vehicles.push(data.name)
           this.vehicles = _vehicles.slice(0, 3).sort();
