@@ -26,7 +26,7 @@
         <br>
         <div><br></div>
         <!--  home planet of selected character -->
-        <p class="bold">Home Planet: </p><button mat-stroked-button style="color: black;">{{homePlanet}}</button>
+        <p class="bold">Home Planet: </p><button (click)="this.planetService.navigateToPlanet(selectedCharacter.homeworld.split('/').reverse()[1])" mat-stroked-button style="color: black;">{{homePlanet}}</button>
         <div><br></div>
         <!--  films of selected character -->
         @if(characters){
