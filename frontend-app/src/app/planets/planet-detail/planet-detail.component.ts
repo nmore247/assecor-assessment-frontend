@@ -8,11 +8,12 @@ import { FilmsService } from '../../films/films.service';
 import { PlanetsService } from '../planets.service';
 import { IFilm } from '../../films/film';
 import { ICharacter } from '../../characters/character';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-planet-detail',
   standalone: true,
-  imports: [RouterModule, MatButtonModule, CommonModule],
+  imports: [RouterModule, MatButtonModule, CommonModule, MatProgressSpinnerModule],
   templateUrl: './planet-detail.component.html',
   styleUrl: './planet-detail.component.scss'
 })

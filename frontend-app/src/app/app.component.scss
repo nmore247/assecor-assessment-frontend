@@ -10,11 +10,17 @@ mat-toolbar {
 
 .main-content {
     padding-top: 8rem;
-  }
+}
+
+.navlinks {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
 
 .navlink {
     font-size: 14px;
-    margin-left: 2rem;
+
     &:hover {
         cursor: pointer;
         text-decoration: underline;
@@ -40,4 +46,31 @@ mat-toolbar {
     height: 4rem;
     margin-left: auto;
     background-color: #FFFFFF;
+    position: relative;
+    right: 200px;
+}
+
+#header-margin {
+    margin-left: 200px;
+}
+
+@media (max-width: 600px) {
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 8px;
+    }
+
+    #header-margin {
+        margin-left: 12px;
+    }
+
+    #search-box {
+        height: 4rem;
+        margin-left: auto;
+        background-color: #FFFFFF;
+        position: relative;
+        right: 0px;
+    }
 }

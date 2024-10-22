@@ -12,11 +12,12 @@ import { IPlanet } from '../../planets/planet';
 import { IStarship } from '../../starships/starship';
 import { IVehicle } from '../../vehicles/vehicle';
 import { IFilm } from '../../films/film';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-character-detail',
   standalone: true,
-  imports: [RouterModule, MatButtonModule, CommonModule],
+  imports: [RouterModule, MatButtonModule, CommonModule, MatProgressSpinnerModule],
   templateUrl: './character-detail.component.html',
   styleUrl: './character-detail.component.scss'
 })

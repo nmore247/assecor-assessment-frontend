@@ -17,20 +17,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class FilmsListComponent implements OnInit {
   public films: IFilm[] = [];
 
-  constructor(private filmsListService: FilmsService, private router: Router) {
+  constructor(public filmsService: FilmsService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-    this.filmsListService.getAllFilms().subscribe(response => {
+    this.filmsService.getAllFilms().subscribe(response => {
       if (response) {
         this.films = response.results
       }
     })
   }
 
-  public navigateToFilm(id: string): void {
-    this.router.navigate(['films', id]);
-  }
 
 }

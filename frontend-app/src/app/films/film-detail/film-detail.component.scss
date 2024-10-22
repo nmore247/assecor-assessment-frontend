@@ -1,3 +1,9 @@
+@import "../../../styles.scss";
+
+.loading {
+    @include div-center
+}
+
 .container {
     padding-top: 64px;
 }

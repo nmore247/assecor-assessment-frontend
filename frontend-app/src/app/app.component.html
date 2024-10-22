@@ -1,8 +1,8 @@
 <mat-toolbar>
-  <span><img src="../assets/images/star-wars-logo-svgrepo-com.svg" alt="" width="166px" height="76px"></span>
+  <span id="header-margin"><img src="../assets/images/star-wars-logo-svgrepo-com.svg" alt="" width="166px" height="76px"></span>
   <div class="navlinks">
     @for(link of navlinks; track link.name){
-    <span class="navlink" [routerLink]="link.url">{{ link.name }}</span>
+    <div class="navlink" [routerLink]="link.url">{{ link.name }}</div>
     }
   </div>
   <mat-form-field id="search-box">
