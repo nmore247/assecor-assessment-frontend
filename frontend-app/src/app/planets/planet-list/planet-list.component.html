@@ -1,0 +1,25 @@
+<div class="title">
+    <h3>Planets</h3>
+</div>
+@if(planets.length > 0){
+<div class="container">
+    @for(planet of planets; track planet.name){
+    <mat-card class="film-card" (click)="navigateToPlanet(planet.url.split('/').reverse()[1])">
+        <img mat-card-image src="../../../assets/images/220px-Tatooine_(fictional_desert_planet).png" alt="{{ planet.name }}">
+        <mat-card-header>
+            <mat-card-title class="card-header">{{ planet.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p class="detail">Climate: {{ planet.climate }}</p>
+            <p class="detail">Gravity: {{ planet.gravity }} ...</p>
+            <p class="detail">Orbital Period: {{ planet.orbital_period }}</p>
+        </mat-card-content>
+        <p class="info">More Information</p>
+    </mat-card>
+    }
+
+</div>
+}
+@else{
+<div class="loading"><mat-spinner></mat-spinner></div>
+}

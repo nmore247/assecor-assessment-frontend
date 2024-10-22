@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="title center">
+        <p>Planet details</p>
+    </div>
+    <hr class="underline center">
+
+    <ng-container></ng-container>
+    @if(selectedPlanet){
+    <div class="film-title center">
+        <p>{{selectedPlanet.name}}</p>
+    </div>
+    }
+</div>
+
+<!-- character details section -->
+@if(selectedPlanet){
+<div class="detailcontainer">
+    <div class="detailcolumn">
+        <p id="details" class="spacer">Details:</p>
+        <p class="bold spacer">Type: <span class="litefont">{{selectedPlanet.terrain}}</span></p>
+        <p class="bold spacer">Created by: <span class="litefont">{{selectedPlanet.created}}</span></p>
+        <p class="bold spacer">Genre: <span class="litefont">{{selectedPlanet.climate}}</span></p>
+        <p class="bold spacer">Race(s): <span class="litefont">{{selectedPlanet.population}}</span></p>
+        <p class="bold spacer">Notable: <span class="litefont">{{selectedPlanet.surface_water}}</span></p>
+        <p class="bold spacer">First appearance: <span class="litefont">{{selectedPlanet.created | date }}</span></p>
+        <br>
+        <div><br></div>
+        <!--  home planet of selected character -->
+        <p class="bold">Home Planet of: </p><button mat-stroked-button style="color: black;">{{homePlanetofCharacter}}</button>
+        <div><br></div>
+        <!--  films of selected character -->
+        @if(characters){
+        <p class="bold">Films:</p>
+        @for (film of films; track $index) {
+        <button mat-stroked-button style="color: black;">{{film}}</button>
+        }
+        @if(selectedPlanet.films.length > 3){
+        <button mat-stroked-button style="color: black;">...</button>
+        }
+        }
+        <div><br></div>
+    </div>
+
+    <div><img src="../../../assets/images/220px-Tatooine_(fictional_desert_planet).png" alt="" class="responsive-image"></div>
+</div>
+}
+
+
+@else {
+<p>Loading character details...</p>
+}

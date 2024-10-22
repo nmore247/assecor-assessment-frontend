@@ -8,6 +8,6 @@ export const routes: Routes = [
     { path: 'films/:id', loadComponent: () => import("./films/film-detail/film-detail.component").then((m) => m.FilmDetailComponent) },
     { path: 'characters', loadComponent: () => import("./characters/character-list/character-list.component").then((m) => m.CharacterListComponent) },
     { path: 'characters/:id', loadComponent: () => import("./characters/character-detail/character-detail.component").then((m) => m.CharacterDetailComponent) },
-    /* { path: 'planets', loadComponent: () => import("./planets/planets-list/planets-list.component").then((m) => m.PlanetListComponent) },
-    { path: 'planets/:id', loadComponent: () => import("./planets/planets-detail/planet-detail.component").then((m) => m.PlanetDetailComponent) }, */
+    { path: 'planets', loadComponent: () => import("./planets/planet-list/planet-list.component").then((m) => m.PlanetListComponent) },
+    { path: 'planets/:id', loadComponent: () => import("./planets/planet-detail/planet-detail.component").then((m) => m.PlanetDetailComponent) },
 ];
