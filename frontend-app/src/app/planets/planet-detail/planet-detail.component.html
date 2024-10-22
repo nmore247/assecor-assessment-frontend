@@ -18,7 +18,7 @@
     <div class="detailcolumn">
         <p id="details" class="spacer">Details:</p>
         <p class="bold spacer">Type: <span class="litefont">{{selectedPlanet.terrain}}</span></p>
-        <p class="bold spacer">Created by: <span class="litefont">{{selectedPlanet.created}}</span></p>
+        <p class="bold spacer">Created by: <span class="litefont">{{selectedPlanet.created | date }}</span></p>
         <p class="bold spacer">Genre: <span class="litefont">{{selectedPlanet.climate}}</span></p>
         <p class="bold spacer">Race(s): <span class="litefont">{{selectedPlanet.population}}</span></p>
         <p class="bold spacer">Notable: <span class="litefont">{{selectedPlanet.surface_water}}</span></p>
@@ -26,32 +26,35 @@
         <br>
         <div><br></div>
         <!--  home planet of character -->
-        <p class="bold">Home Planet of: </p><button mat-stroked-button style="color: black;">{{homePlanetofCharacter}}</button>
+        <p class="bold">Home Planet of: </p>
+        <!--  characters -->
+        @if(characters){
+        @for (character of characters; track $index) {
+        <button mat-stroked-button
+            (click)="this.characterService.navigateToCharacter(character.url.split('/').reverse()[1])"
+            style="color: black;">{{character.name}}</button>
+        }
+        @if(selectedPlanet.residents.length > 3){
+        <button mat-stroked-button style="color: black;">...</button>
+        }
+        }
         <div><br></div>
         <!--  films of selected planet -->
         @if(characters){
         <p class="bold">Films:</p>
         @for (film of films; track $index) {
-        <button mat-stroked-button (click)="this.filmService.navigateToFilm(film.url.split('/').reverse()[1])" style="color: black;">{{film.title}}</button>
+        <button mat-stroked-button (click)="this.filmService.navigateToFilm(film.url.split('/').reverse()[1])"
+            style="color: black;">{{film.title}}</button>
         }
         @if(selectedPlanet.films.length > 3){
         <button mat-stroked-button style="color: black;">...</button>
         }
         }
         <div><br></div>
-         <!--  characters -->
-         @if(characters){
-            <p class="bold">Characters:</p>
-            @for (character of characters; track $index) {
-            <button mat-stroked-button (click)="this.characterService.navigateToCharacter(character.url.split('/').reverse()[1])" style="color: black;">{{character.name}}</button>
-            }
-            @if(selectedPlanet.residents.length > 3){
-            <button mat-stroked-button style="color: black;">...</button>
-            }
-            }
     </div>
 
-    <div><img src="../../../assets/images/220px-Tatooine_(fictional_desert_planet).png" alt="" class="responsive-image"></div>
+    <div><img src="../../../assets/images/220px-Tatooine_(fictional_desert_planet).png" alt="" class="responsive-image">
+    </div>
 </div>
 }
 
