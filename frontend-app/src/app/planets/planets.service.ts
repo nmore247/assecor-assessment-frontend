@@ -3,13 +3,14 @@ import { baseURL } from '../environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPlanet } from './planet';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   private planetUrl = baseURL + "planets/";
 
@@ -28,6 +29,10 @@ export class PlanetsService {
   public getPlanetById(id: string): Observable<IPlanet> {
     const url = `${this.planetUrl}${id}`;
     return this.http.get<IPlanet>(url);
+  }
+
+  public navigateToPlanet(id: string) {
+    this.router.navigate(['planets', id]);
   }
 
 

@@ -5,9 +5,9 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IPlanet } from '../planet';
 import { CharacterService } from '../../characters/character.service';
 import { FilmsService } from '../../films/films.service';
-import { StarshipService } from '../../starships/starship.service';
-import { VehicleService } from '../../vehicles/vehicles.service';
 import { PlanetsService } from '../planets.service';
+import { IFilm } from '../../films/film';
+import { ICharacter } from '../../characters/character';
 
 @Component({
   selector: 'app-planet-detail',
@@ -19,20 +19,16 @@ import { PlanetsService } from '../planets.service';
 export class PlanetDetailComponent implements OnInit {
 
   public selectedPlanet!: IPlanet;
-  public characters: string[] = [];
-  public films: string[] = [];
-  public planets: string[] = [];
-  public starships: string[] = [];
-  public vehicles: string[] = [];
+
+  public characters: ICharacter[] = [];
+  public films: IFilm[] = [];
   public homePlanetofCharacter: string = "";
 
   constructor(
     private route: ActivatedRoute,
-    private filmService: FilmsService,
-    private characterService: CharacterService,
+    public filmService: FilmsService,
+    public characterService: CharacterService,
     private planetService: PlanetsService,
-    private starshipService: StarshipService,
-    private vehicleService: VehicleService
   ) { }
 
   ngOnInit(): void {
@@ -40,58 +36,37 @@ export class PlanetDetailComponent implements OnInit {
     if (planetId) {
       this.planetService.getPlanetById(planetId).subscribe(planet => {
         this.selectedPlanet = planet;
-        //this.getFilmAttributeNames(this.selectedFilm.characters, this.selectedFilm.planets, this.selectedFilm.starships, this.selectedFilm.vehicles)
+        this.getPlanetAttributeNames(this.selectedPlanet.residents, this.selectedPlanet.films)
       })
     }
   }
 
-  public getPlanetAttributeNames(characters: string[], films:string[], starships: string[], vehicles: string[]) {
+  public getPlanetAttributeNames(characters: string[], films:string[]) {
     
-    const _characters: string[] = [];
-    const _starships: string[] = [];
-    const _vehicles: string[] = [];
-    const _films: string[] = [];
+    const _characters: ICharacter[] = [];
+    const _films: IFilm[] = [];
 
     // retrieve list of characters for selected planet
     characters.forEach(character => {
       this.characterService.getSingleCharacter(character).subscribe(data => {
         if (data) {
-          _characters.push(data.name)
+          _characters.push(data)
           this.characters = _characters.slice(0, 3).sort();
         }
       })
     })
 
-     // retrieve list of films for selected characters
+     // retrieve list of films for selected planet
      films.forEach(film => {
       this.filmService.getSingleFilm(film).subscribe(data => {
         if (data) {
-          _films.push(data.title)
+          _films.push(data)
           this.films = _films.slice(0, 3).sort();
         }
       })
     })
 
-    // retrieve list of starships for selected film
-    starships.forEach(starship => {
-      this.starshipService.getSingleStarship(starship).subscribe(data => {
-        if (data) {
-          _starships.push(data.name)
-          this.starships = _starships.slice(0, 3).sort();
-        }
-      })
-    })
-
-    // retrieve list of vehicles for selected film
-    vehicles.forEach(vehicle => {
-      this.vehicleService.getSingleVehicle(vehicle).subscribe(data => {
-        if (data) {
-          _vehicles.push(data.name)
-          this.vehicles = _vehicles.slice(0, 3).sort();
-        }
-      })
-    })
-
   }
+
 
 }

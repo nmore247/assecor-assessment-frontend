@@ -32,7 +32,7 @@
         @if(characters){
         <p class="bold">Films:</p>
         @for (film of films; track $index) {
-        <button mat-stroked-button style="color: black;">{{film}}</button>
+        <button mat-stroked-button (click)="this.filmService.navigateToFilm(film.url.split('/').reverse()[1])" style="color: black;">{{film.title}}</button>
         }
         @if(selectedCharacter.films.length > 3){
         <button mat-stroked-button style="color: black;">...</button>
@@ -43,7 +43,7 @@
         @if(starships){
         <p class="bold">Starships:</p>
         @for (starship of starships; track $index) {
-        <button mat-stroked-button style="color: black;">{{starship}}</button>
+        <button mat-stroked-button style="color: black;">{{starship.name}}</button>
         }
         @if(selectedCharacter.starships.length > 3){
         <button mat-stroked-button style="color: black;">...</button>
@@ -54,7 +54,7 @@
         @if(vehicles){
         <p class="bold">Vehicles:</p>
         @for (vehicle of vehicles; track $index) {
-        <button mat-stroked-button style="color: black;">{{vehicle}}</button>
+        <button mat-stroked-button style="color: black;">{{vehicle.name}}</button>
         }
         @if(selectedCharacter.vehicles.length > 3){
         <button mat-stroked-button style="color: black;">...</button>

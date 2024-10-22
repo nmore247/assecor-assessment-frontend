@@ -3,6 +3,7 @@ import { baseURL } from '../environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICharacter } from './character';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class CharacterService {
 
   private charactersUrl = baseURL + "people/";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   // get all films
   public getAllCharacters(): Observable<{ results: ICharacter[] }> {
@@ -30,6 +31,8 @@ export class CharacterService {
     return this.http.get<ICharacter>(url);
   }
 
-  
+  public navigateToCharacter(id: string): void {
+    this.router.navigate(['characters', id]);
+  }
 
 }

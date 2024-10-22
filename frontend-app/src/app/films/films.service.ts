@@ -3,6 +3,7 @@ import { baseURL } from '../environment';
 import { HttpClient } from '@angular/common/http';
 import { IFilm } from './film';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class FilmsService {
 
   private filmsUrl = baseURL + "films/";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   // get all films
   public getAllFilms(): Observable<{ results: IFilm[] }> {
@@ -30,6 +31,9 @@ export class FilmsService {
     return this.http.get<IFilm>(url);
   }
 
+  public navigateToFilm(id: string) {
+    this.router.navigate(['films', id]);
+  }
   
 
 }
