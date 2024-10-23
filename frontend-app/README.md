@@ -13,21 +13,20 @@ Seamless navigation between related views (e.g., viewing all characters in a spe
 Responsive design for mobile and desktop platforms.
 
 # App Views
-# List Views
+# List View
 The app features list views for different Star Wars elements fetched from the SWAPI:
 
 Films: A list of Star Wars films.
 Characters: A list of characters with their name, gender, and other details.
 Planets: A list of planets with details such as climate, terrain, and population.
-Detail Views
-Each element in the list view can be clicked to see more details. 
-The user can easily navigate between different views in the app:
 
+# Detail View
+Each element in the list view can be clicked to see more details. 
+The user can easily navigate between different views in the app.
 From a film detail view, the user can access the list of characters in that film.
 From a character detail view, the user can view the planet they come from or films they appear in.
 
 # Technologies Used
-
 Angular v18
 TypeScript
 RxJS
